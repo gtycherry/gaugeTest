@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -20,8 +21,8 @@ public class AmazonRegisterPage {
     @FindBy(id = "ap_email")
     WebElement userEmailOrPhone;
 
-    @FindBy(id = "ap_email_check")
-    WebElement userEmailOrPhoneConfirmation;
+//    @FindBy(id = "ap_email_check")
+//    WebElement userEmailOrPhoneConfirmation;
 
     @FindBy(id = "ap_password")
     WebElement userPassword;
@@ -29,16 +30,16 @@ public class AmazonRegisterPage {
     @FindBy(id = "ap_password_check")
     WebElement userPasswordConfirmation;
 
-    @FindBy(id = "ap_legal_agreement_check_box")
+    @FindBy(name = "legalAgreementCheckBox")
     WebElement agreementCheckbox;
 
-    @FindBy(id = "continue-input")
+    @FindBy(id = "continue")
     private WebElement registerButton;
 
     public void inputRegisterInfor() {
-        userName.sendKeys("daisy");
-        userEmailOrPhone.sendKeys("daisy@163.com");
-        userEmailOrPhoneConfirmation.sendKeys("daisy@163.com");
+        userName.sendKeys("qalearningplan");
+        userEmailOrPhone.sendKeys("qalearningplan@163.com");
+//        userEmailOrPhoneConfirmation.sendKeys("daisy@163.com");
         userPassword.sendKeys("123456");
         userPasswordConfirmation.sendKeys("123456");
         agreementCheckbox.click();
@@ -52,7 +53,7 @@ public class AmazonRegisterPage {
     public void inputRegisterInformation(String name, String emailOrPhone, String emailOrPhoneConfirmation, String password, String passwordConfirmation) {
         userName.sendKeys(name);
         userEmailOrPhone.sendKeys(emailOrPhone);
-        userEmailOrPhoneConfirmation.sendKeys(emailOrPhoneConfirmation);
+//        userEmailOrPhoneConfirmation.sendKeys(emailOrPhoneConfirmation);
         userPassword.sendKeys(password);
         userPasswordConfirmation.sendKeys(passwordConfirmation);
         agreementCheckbox.click();

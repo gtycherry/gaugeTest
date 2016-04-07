@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.core.Is.is;
 
@@ -17,20 +18,25 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by tyguo on 12/28/15.
  */
 public class AmazonDemoStep {
+    private AmazonHomePage amazonHomePage;
+    AmazonRegisterPage amazonRegisterPage;
+    AmazonLoginPage amazonLoginPage;
+
     @Step("User navigate to Amazon home page")
     public void navigateToAmazonHomePage() {
         DriverFactory.driver.get(AmazonHomePage.Url);
+        DriverFactory.driver.manage().window().maximize();
     }
 
     @Step("User clicks register link on home page")
     public void userSelectRegisterLink() {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         amazonHomePage.clickRegisterLink();
     }
 
     @Step("He input the information required and click register button")
     public void userInputRegisterInfor() {
-        AmazonRegisterPage amazonRegisterPage = PageFactory.initElements(DriverFactory.driver, AmazonRegisterPage.class);
+        amazonRegisterPage = PageFactory.initElements(DriverFactory.driver, AmazonRegisterPage.class);
         amazonRegisterPage.inputRegisterInfor();
         amazonRegisterPage.clickRegisterButton();
 
@@ -38,20 +44,20 @@ public class AmazonDemoStep {
 
     @Step("He should be registered successfully and automatically logged in")
     public void verifyRegistrationIsSuccessful() {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
-        assertThat(amazonHomePage.userNameIsDisplayed(), is("您好, daisy"));
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        assertThat(amazonHomePage.userNameIsDisplayed(), is("您好, qalearningplan"));
     }
 
     @Step("User search <productName> on home page")
     public void searchProduct(String productName) {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         amazonHomePage.searchProduct(productName);
 
     }
 
     @Step("User add the first product to his shopping cart")
     public void addProductToCart() {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         amazonHomePage.addProductToCart();
     }
 
@@ -63,13 +69,15 @@ public class AmazonDemoStep {
 
     @Step("User register bundles of accounts with below the information in below table <table>")
     public void registerManyUser(Table table) {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
-        AmazonRegisterPage amazonRegisterPage = PageFactory.initElements(DriverFactory.driver, AmazonRegisterPage.class);
-        AmazonLoginPage amazonLoginPage = PageFactory.initElements(DriverFactory.driver, AmazonLoginPage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonRegisterPage = PageFactory.initElements(DriverFactory.driver, AmazonRegisterPage.class);
+        amazonLoginPage = PageFactory.initElements(DriverFactory.driver, AmazonLoginPage.class);
         List<List<String>> rows = table.getRows();
         for (List<String> row : rows) {
-//            amazonHomePage.clickLogoutLink();
-//            amazonLoginPage.clickHomePageLink();
+            amazonHomePage.clickLogoutLink();
+            DriverFactory.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            amazonLoginPage.clickHomePageLink();
+            DriverFactory.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             amazonHomePage.clickRegisterLink();
             amazonRegisterPage.inputRegisterInformation(row.get(0), row.get(1), row.get(2), row.get(3), row.get(4));
             amazonRegisterPage.clickRegisterButton();
@@ -79,8 +87,8 @@ public class AmazonDemoStep {
 
     @Step("He logout amazon")
     public void logoutAmazon() {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
-        AmazonLoginPage amazonLoginPage = PageFactory.initElements(DriverFactory.driver, AmazonLoginPage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonLoginPage = PageFactory.initElements(DriverFactory.driver, AmazonLoginPage.class);
         amazonHomePage.clickLogoutLink();
         amazonLoginPage.clickHomePageLink();
 
@@ -88,23 +96,24 @@ public class AmazonDemoStep {
 
     @Step("User clicks login link on home page")
     public void goToLoginPage() {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         amazonHomePage.clickLogin();
 
     }
 
     @Step("He login with his credentials")
     public void login() {
-        AmazonLoginPage amazonLoginPage = PageFactory.initElements(DriverFactory.driver, AmazonLoginPage.class);
+        amazonLoginPage = PageFactory.initElements(DriverFactory.driver, AmazonLoginPage.class);
         amazonLoginPage.inputCredentials();
     }
 
     @Step("He can logout after he login")
     public void logout() {
-        AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         amazonHomePage.clickLogoutLink();
 
     }
+
 }
 
 

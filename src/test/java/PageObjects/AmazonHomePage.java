@@ -12,39 +12,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by tyguo on 12/28/15.
  */
-public class AmazonHomePage extends BasePage{
+public class AmazonHomePage extends BasePage {
 
     private WebDriver driver;
 
     public static String Url = URL;
 
-    @FindBy(id="nav-link-yourAccount")
+    @FindBy(id = "nav-link-yourAccount")
     private WebElement accountZone;
 
-    @FindBy(xpath="//*[@id=\"nav-flyout-ya-newCust\"]/a")
+    @FindBy(xpath = "//*[@id=\"nav-flyout-ya-newCust\"]/a")
     private WebElement registerLink;
 
-    @FindBy(xpath="//*[@id=\"nav-link-yourAccount\"]/span[1]")
+    @FindBy(xpath = "//*[@id=\"nav-link-yourAccount\"]/span[1]")
     private WebElement userName;
 
     @FindBy(xpath = "//*[@id=\"nav-item-signout\"]/span")
     private WebElement logoutLink;
 
 
-    @FindBy(xpath="//*[@id=\"nav-flyout-ya-signin\"]/a/span")
-    private WebElement loginButton;
+    @FindBy(xpath = "//*[@id=\"nav-flyout-ya-signin\"]/a/span")
+    private WebElement loginLink;
 
     @FindBy(id = "twotabsearchtextbox")
     private WebElement searchField;
 
-    @FindBy(xpath= "//*[@id=\"nav-search\"]/form/div[2]/div/input")
+    @FindBy(xpath = "//*[@id=\"nav-search\"]/form/div[2]/div/input")
     private WebElement searchButton;
 
-    @FindBy(css=".a-button-input:nth-of-type(1)")
+    @FindBy(css = ".a-button-input:nth-of-type(1)")
     private WebElement firstProduct;
 
+    @FindBy(css = "#nav-link-yourAccount .nav-line-2")
+    private WebElement myAccountLink;
 
-    public AmazonHomePage(WebDriver driver){
+    public AmazonHomePage(WebDriver driver) {
 
         this.driver = driver;
     }
@@ -53,11 +55,12 @@ public class AmazonHomePage extends BasePage{
     public void clickRegisterLink() {
         Actions action1 = new Actions(driver);
         action1.moveToElement(accountZone).clickAndHold(registerLink).build().perform();
+        action1.release(accountZone).perform();//add this line as i upgrade the selenium java version to 2.52.0
         registerLink.click();
     }
 
     public String userNameIsDisplayed() {
-        return(userName.getText());
+        return (userName.getText());
     }
 
     public void searchProduct(String productName) {
@@ -79,7 +82,15 @@ public class AmazonHomePage extends BasePage{
 
     public void clickLogin() {
         Actions action1 = new Actions(driver);
-        action1.moveToElement(accountZone).clickAndHold(registerLink).build().perform();
-        loginButton.click();
+        action1.moveToElement(accountZone).clickAndHold(loginLink).build().perform();
+        action1.release(accountZone).perform();//add this line as i upgrade the selenium java version to 2.52.0
+        loginLink.click();
+    }
+
+    public void clickMyAccount() {
+        Actions action1 = new Actions(driver);
+        action1.moveToElement(accountZone).clickAndHold(myAccountLink).build().perform();
+        action1.release(accountZone).perform();//add this line as i upgrade the selenium java version to 2.52.0
+        myAccountLink.click();
     }
 }
