@@ -1,0 +1,8 @@
+Created by tyguo on 4/7/16
+
+This is a concept file with following syntax for each concept.
+# Search <productName> and add it to shopping card
+
+* User search <productName> on home page
+* User add the first product to his shopping cart
+* The product is added to cart successfully

@@ -23,12 +23,12 @@ public class DriverFactory {
 
     }
 
-    @AfterSuite
-//    @AfterScenario
-         public void closeDriver(){
-        driver.close();
-        driver.quit();
-    }
+//    @AfterSuite
+////    @AfterScenario
+//         public void closeDriver(){
+//        driver.close();
+//        driver.quit();
+//    }
 
 
 //    static WebDriver driver = null;

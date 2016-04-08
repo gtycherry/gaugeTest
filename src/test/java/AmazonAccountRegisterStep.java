@@ -17,10 +17,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by tyguo on 12/28/15.
  */
-public class AmazonDemoStep {
+public class AmazonAccountRegisterStep {
     private AmazonHomePage amazonHomePage;
-    AmazonRegisterPage amazonRegisterPage;
-    AmazonLoginPage amazonLoginPage;
+    private AmazonRegisterPage amazonRegisterPage;
+    private AmazonLoginPage amazonLoginPage;
 
     @Step("User navigate to Amazon home page")
     public void navigateToAmazonHomePage() {
@@ -47,25 +47,6 @@ public class AmazonDemoStep {
         amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         assertThat(amazonHomePage.userNameIsDisplayed(), is("您好, qalearningplan"));
     }
-
-    @Step("User search <productName> on home page")
-    public void searchProduct(String productName) {
-        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
-        amazonHomePage.searchProduct(productName);
-
-    }
-
-    @Step("User add the first product to his shopping cart")
-    public void addProductToCart() {
-        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
-        amazonHomePage.addProductToCart();
-    }
-
-//    @Step("Product is added to shopping cart successfully")
-//    public void shoppingCartDisplay() {
-//        AmazonShoppingCartPage amazonShoppingCartPage = PageFactory.initElements(DriverFactory.driver, AmazonShoppingCartPage.class);
-//        assertThat(amazonShoppingCartPage.cartText.getText(), is("商品已加入购物车"));
-//    }
 
     @Step("User register bundles of accounts with below the information in below table <table>")
     public void registerManyUser(Table table) {

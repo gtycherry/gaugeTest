@@ -12,7 +12,6 @@ public class AmazonUserProfilePage {
     private WebElement addNewAddress;
 
     public void clickAddNewAddress() {
-        System.out.println("this is a testing");
         addNewAddress.click();
     }
 }

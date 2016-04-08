@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,6 +9,17 @@ import org.openqa.selenium.support.FindBy;
  */
 public class AmazonShoppingCartPage {
 
-    @FindBy(css="#huc-v2-order-row-confirm-text .a-text-bold")
-    public WebElement cartText;
+    @FindBy(css=".a-size-medium.a-text-bold")
+    public WebElement productAddedMessage;
+
+    @FindBy(css="#hlb-view-cart-announce")
+    private WebElement shoppingCartButton;
+
+    public void productAddedMessageDisplay() {
+        Assert.assertEquals(productAddedMessage.getText(), "商品已加入购物车" );
+    }
+
+    public void clickShoppingCart() {
+        shoppingCartButton.click();
+    }
 }

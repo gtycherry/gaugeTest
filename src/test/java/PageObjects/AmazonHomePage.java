@@ -88,9 +88,9 @@ public class AmazonHomePage extends BasePage {
     }
 
     public void clickMyAccount() {
-        Actions action1 = new Actions(driver);
-        action1.moveToElement(accountZone).clickAndHold(myAccountLink).build().perform();
-        action1.release(accountZone).perform();//add this line as i upgrade the selenium java version to 2.52.0
+//        Actions action1 = new Actions(driver);
+//        action1.moveToElement(accountZone).clickAndHold(myAccountLink).build().perform();
+//        action1.release(accountZone).perform();//add this line as i upgrade the selenium java version to 2.52.0
         myAccountLink.click();
     }
 }

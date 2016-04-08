@@ -1,8 +1,8 @@
 import PageObjects.AmazonAddressInputPage;
+import PageObjects.AmazonAddressManagementPage;
 import PageObjects.AmazonHomePage;
 import PageObjects.AmazonUserProfilePage;
 import com.thoughtworks.gauge.Step;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +13,7 @@ public class AmazonUserProfileStep {
     AmazonHomePage amazonHomePage;
     AmazonUserProfilePage amazonUserProfilePage;
     AmazonAddressInputPage amazonAddressInputPage;
+    private AmazonAddressManagementPage amazonAddressManagementPage;
 
     @Step("用户导航到我的账户")
     public void navigateToMyAccount() {
@@ -37,6 +38,7 @@ public class AmazonUserProfileStep {
 
     @Step("成功添加地址信息记录")
     public void verifyNewAddressAdded() {
-
+        amazonAddressManagementPage = PageFactory.initElements(DriverFactory.driver, AmazonAddressManagementPage.class);
+        amazonAddressManagementPage.addressAddAlterDisplay();
     }
 }
