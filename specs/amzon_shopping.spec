@@ -11,10 +11,10 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
 
 User can add product to his shopping cart
 ---------------------------------------------------
-//* Search "亨氏面条" and add it to shopping card
+Tags: add_product
 * Search "嘉宝泡芙" and add it to shopping card
 
 ## User can delete product in shopping cart after he added the product
-* Search "kindle paperwhite" and add it to shopping card
-* click shopping cart button to view shopping cart
-* click delete button besides product
+Tags: delete_product
+* Search "iPhone 6s" and add it to shopping card
+* delete product "iPhone 6s" from shopping cart

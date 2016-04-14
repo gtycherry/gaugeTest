@@ -15,8 +15,8 @@ public class DriverFactory {
 
     public static WebDriver driver;
 
-    @BeforeSuite
-//    @BeforeScenario
+//    @BeforeSuite
+    @BeforeScenario
     public void initializeDriver(){
 //        driver = new FirefoxDriver(binary, profile);
         driver = new FirefoxDriver();
@@ -24,11 +24,11 @@ public class DriverFactory {
     }
 
 //    @AfterSuite
-////    @AfterScenario
-//         public void closeDriver(){
-//        driver.close();
-//        driver.quit();
-//    }
+    @AfterScenario
+         public void closeDriver(){
+        driver.close();
+        driver.quit();
+    }
 
 
 //    static WebDriver driver = null;

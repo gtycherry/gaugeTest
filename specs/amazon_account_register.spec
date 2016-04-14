@@ -1,6 +1,6 @@
 Amazon user registration functions
 ==================================
-
+Tags: register
 Created by tyguo on 12/28/15
 
 This is an executable specification file which follows markdown syntax.
@@ -11,7 +11,7 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
 
 Register several accounts
 ------------------------
-
+Tags: several_accounts
 * User register bundles of accounts with below the information in below table
   |name    |emailOrPhone      |emailOrPhoneConfirmation|password   |passwordConfirmation|
   |--------|----------------- |------------------------|-----------|--------------------|

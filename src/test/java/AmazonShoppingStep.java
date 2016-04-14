@@ -31,7 +31,9 @@ public class AmazonShoppingStep {
     @Step("The product is added to cart successfully")
     public void verifyProductAdded() {
         amazonShoppingCartPage = PageFactory.initElements(DriverFactory.driver, AmazonShoppingCartPage.class);
-        DriverFactory.driver.switchTo().window(" 亚马逊购物车");
+        for (String winHandle : DriverFactory.driver.getWindowHandles()) {
+            DriverFactory.driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+        }
         amazonShoppingCartPage.productAddedMessageDisplay();
     }
 
@@ -42,10 +44,16 @@ public class AmazonShoppingStep {
 
     }
 
-    @Step("click delete button besides product")
-    public void deleteProduct() {
+    @Step("click delete button under <productName>")
+    public void deleteProduct(String productName) {
         amazonShoppingCartDetailPage = PageFactory.initElements(DriverFactory.driver, AmazonShoppingCartDetailPage.class);
-        amazonShoppingCartDetailPage.deleteProduct();
+        amazonShoppingCartDetailPage.deleteProduct(productName);
     }
 
+    @Step("<productName> has been removed from shopping cart")
+    public void verifyProductDeleteSuccessfully(String productName) {
+        amazonShoppingCartDetailPage.deleteProductMessageDisplay(productName);
+
+    }
 }
+

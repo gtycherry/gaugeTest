@@ -12,6 +12,7 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
 
 用户可以添加新地址
 ------------------------
+Tags: 地址
 
 * 用户导航到我的账户
 * 用户点击添加新地址

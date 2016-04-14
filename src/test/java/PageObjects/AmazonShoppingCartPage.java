@@ -16,6 +16,7 @@ public class AmazonShoppingCartPage {
     private WebElement shoppingCartButton;
 
     public void productAddedMessageDisplay() {
+
         Assert.assertEquals(productAddedMessage.getText(), "商品已加入购物车" );
     }
 
