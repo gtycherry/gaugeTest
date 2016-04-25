@@ -27,7 +27,7 @@ public class AmazonHomePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"nav-link-yourAccount\"]/span[1]")
     private WebElement userName;
 
-    @FindBy(xpath = "//*[@id=\"nav-item-signout\"]/span")
+    @FindBy(css = "#nav-item-signout .nav-text")
     private WebElement logoutLink;
 
 

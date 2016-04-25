@@ -2,6 +2,7 @@ Created by tyguo on 4/11/16
 
 This is a concept file with following syntax for each concept.
 # delete product <productName> from shopping cart
+
 * click shopping cart button to view shopping cart
 * click delete button under <productName>
 * <productName> has been removed from shopping cart

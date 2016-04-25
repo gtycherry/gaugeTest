@@ -1,5 +1,6 @@
 package PageObjects;
 
+import com.thoughtworks.gauge.Gauge;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,12 @@ public class AmazonShoppingCartDetailPage {
     @FindBy(css=".sc-list-body .sc-list-item-removed-msg div:nth-of-type(1)")
     private WebElement deleteConfirmationMessage;
 
+    @FindBy (id = "a-autoid-0-announce")
+    private WebElement amountField;
+
+    @FindBy (id = "dropdown1_2")
+    private WebElement amountValue;
+
     public void deleteProduct(String productName) {
         deleteLink.click();
     }
@@ -24,5 +31,10 @@ public class AmazonShoppingCartDetailPage {
         Assert.assertTrue(deleteConfirmationMessage.getText().contains("从购物车成功删除"));
 //        Assert.assertTrue(deleteConfirmationMessage.getText().contains(productName));
 
+    }
+
+    public void editAmountOfProduct() {
+        amountField.click();
+        amountValue.click();
     }
 }

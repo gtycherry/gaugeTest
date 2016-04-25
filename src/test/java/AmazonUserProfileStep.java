@@ -1,7 +1,4 @@
-import PageObjects.AmazonAddressInputPage;
-import PageObjects.AmazonAddressManagementPage;
-import PageObjects.AmazonHomePage;
-import PageObjects.AmazonUserProfilePage;
+import PageObjects.*;
 import com.thoughtworks.gauge.Step;
 import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
@@ -10,35 +7,42 @@ import java.util.concurrent.TimeUnit;
  * Created by tyguo on 3/28/16.
  */
 public class AmazonUserProfileStep {
-    AmazonHomePage amazonHomePage;
-    AmazonUserProfilePage amazonUserProfilePage;
-    AmazonAddressInputPage amazonAddressInputPage;
-    private AmazonAddressManagementPage amazonAddressManagementPage;
+    AmazonHomePage amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
+    AmazonUserProfilePage amazonUserProfilePage = PageFactory.initElements(DriverFactory.driver, AmazonUserProfilePage.class);
+    AmazonAddressInputPage amazonAddressInputPage = PageFactory.initElements(DriverFactory.driver, AmazonAddressInputPage.class);
+    AmazonAddressManagementPage amazonAddressManagementPage = PageFactory.initElements(DriverFactory.driver, AmazonAddressManagementPage.class);
+    AmazonDeleteAddressConfirmationPage amazonDeleteAddressPage = PageFactory.initElements(DriverFactory.driver, AmazonDeleteAddressConfirmationPage.class);
 
-    @Step("用户导航到我的账户")
+    @Step("User navigate to my account zone")
     public void navigateToMyAccount() {
-        amazonHomePage = PageFactory.initElements(DriverFactory.driver, AmazonHomePage.class);
         amazonHomePage.clickMyAccount();
         DriverFactory.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
     }
 
-    @Step("用户点击添加新地址")
+    @Step("User click add new address link")
     public void clickAddNewAddress() {
-        amazonUserProfilePage = PageFactory.initElements(DriverFactory.driver, AmazonUserProfilePage.class);
         amazonUserProfilePage.clickAddNewAddress();
     }
 
-    @Step("添加用户地址信息并保存")
+    @Step("User add new address and save the record")
     public void addAddressRecord() {
-        amazonAddressInputPage = PageFactory.initElements(DriverFactory.driver, AmazonAddressInputPage.class);
         amazonAddressInputPage.inputAddressInfor();
         amazonAddressInputPage.clickSaveButton();
     }
 
-    @Step("成功添加地址信息记录")
+    @Step("The new address is added successfully")
     public void verifyNewAddressAdded() {
-        amazonAddressManagementPage = PageFactory.initElements(DriverFactory.driver, AmazonAddressManagementPage.class);
         amazonAddressManagementPage.addressAddAlterDisplay();
     }
+
+    @Step("User delete the address")
+    public void deleteAddress() {
+        DriverFactory.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        amazonAddressManagementPage.clickDeleteButton();
+        DriverFactory.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        amazonDeleteAddressPage.clickConfirmButton();
+
+    }
+
 }

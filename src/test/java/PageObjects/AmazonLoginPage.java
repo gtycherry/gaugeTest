@@ -24,10 +24,10 @@ public class AmazonLoginPage {
     }
 
     public void inputCredentials() {
-//        userEmail.sendKeys("qalearningplan@163.com");
-//        userPw.sendKeys("Qa123456");
         userEmail.sendKeys("qalearningplan@163.com");
         userPw.sendKeys("Qa123456");
+//        userEmail.sendKeys("cherrygty@sina.cn");
+//        userPw.sendKeys("gty625811");
         loginButton.click();
     }
 }

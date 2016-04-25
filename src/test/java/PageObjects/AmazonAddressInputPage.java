@@ -43,9 +43,9 @@ public class AmazonAddressInputPage {
         stateValue.click();
         cityValue.click();
         districtValue.click();
-        streetAddress.sendKeys("天府大道中段88号");
+        streetAddress.sendKeys("天府大道天府软件园E区E-1");
         postCode.sendKeys("610041");
-        phoneNumber.sendKeys("18615700625");
+        phoneNumber.sendKeys("18615700624");
         taxId.sendKeys("51202819890432234");
     }
 

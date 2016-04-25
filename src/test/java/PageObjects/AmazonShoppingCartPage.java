@@ -21,6 +21,7 @@ public class AmazonShoppingCartPage {
     }
 
     public void clickShoppingCart() {
+
         shoppingCartButton.click();
     }
 }

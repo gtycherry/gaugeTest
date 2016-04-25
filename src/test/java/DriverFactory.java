@@ -15,7 +15,7 @@ public class DriverFactory {
 
     public static WebDriver driver;
 
-//    @BeforeSuite
+//      @BeforeSuite
     @BeforeScenario
     public void initializeDriver(){
 //        driver = new FirefoxDriver(binary, profile);
@@ -23,8 +23,8 @@ public class DriverFactory {
 
     }
 
-//    @AfterSuite
-    @AfterScenario
+//      @AfterSuite
+     @AfterScenario
          public void closeDriver(){
         driver.close();
         driver.quit();
@@ -35,7 +35,7 @@ public class DriverFactory {
 //
 //    public static WebDriver getDriver() {
 //        if (null == driver) {
-////            System.setProperty("webdriver.chrome.driver", "/Users/tyguo/Documents/Projects/gauge-learning/gauge-learn-project/Tools/chromedriver");
+////            System.setProperty("webdriver.chrome.driver", "/Users/tyguo/Documents/Projects/gauge-learn-project/Tools/chromedriver");
 //            driver = new FirefoxDriver(binary, profile);
 //        }
 //

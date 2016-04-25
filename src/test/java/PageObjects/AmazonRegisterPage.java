@@ -37,8 +37,8 @@ public class AmazonRegisterPage {
     private WebElement registerButton;
 
     public void inputRegisterInfor() {
-        userName.sendKeys("qalearningplan");
-        userEmailOrPhone.sendKeys("qalearning@163.com");
+        userName.sendKeys("qalearningplan01");
+        userEmailOrPhone.sendKeys("qalearning01@163.com");
 //        userEmailOrPhoneConfirmation.sendKeys("daisy@163.com");
         userPassword.sendKeys("123456");
         userPasswordConfirmation.sendKeys("123456");
