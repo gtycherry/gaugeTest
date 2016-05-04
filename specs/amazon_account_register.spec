@@ -9,23 +9,27 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
 * User navigate to Amazon home page
 * User clicks login link on home page
 * He login with his credentials
-//user can register an amazon account successfully
-//----------------
-//
-//* User clicks register link on home page
-//* He input the information required and click register button
-//* He should be registered successfully and automatically logged in
+
 
 Register several accounts
 ------------------------
 
-//* User register bundles of accounts with below the information in below table
 * User register bundles of accounts with below information
   |name   |emailOrPhone      |emailOrPhoneConfirmation|password|passwordConfirmation|
   |-------|----------------- |------------------------|--------|--------------------|
   |Faya101|Faya101@yahoo.com |Faya101@yahoo.com       |123456  |123456              |
   |Faya102|Faya102@yahoo.com |Faya102@yahoo.com       |123456  |123456              |
   |Faya103|Faya103@yahoo.com |Faya103@yahoo.com       |123456  |123456              |
-  |Faya104|Faya104@yahoo.com |Faya104@yahoo.com       |123456  |123456              |
 
 
+
+
+
+
+
+//user can register an amazon account successfully
+//----------------
+//
+//* User clicks register link on home page
+//* He input the information required and click register button
+//* He should be registered successfully and automatically logged in

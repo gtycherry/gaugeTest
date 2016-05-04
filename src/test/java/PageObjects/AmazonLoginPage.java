@@ -7,7 +7,8 @@ import org.openqa.selenium.support.FindBy;
  * Created by tyguo on 1/7/16.
  */
 public class AmazonLoginPage {
-    @FindBy(css = ".a-icon.a-icon-logo.auth-logo-cn")
+//    @FindBy(css = ".a-icon.a-icon-logo.auth-logo-cn")
+    @FindBy(css = ".a-icon.a-icon-logo-china")
     private WebElement homePageLink;
 
     @FindBy(id = "ap_email")

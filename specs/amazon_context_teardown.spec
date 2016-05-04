@@ -1,6 +1,6 @@
 This scenario is to show context and tear down in gauge
 =====================
-Tags: demo
+Tags: demo test
 
 Created by tyguo on 4/21/16
 
@@ -17,16 +17,23 @@ Tags: add product
 
 * Search "iPhone 6s" and add it to shopping card
 
-User can edit amount of product in shopping cart
+User can add new address successfully
 --------------------------------------------------
-Tags: edit shopping cart
+Tags: add address
 
-* Search "iPhone 6s" and add it to shopping card
-* User edit the amount of product to 3
-* delete product "iPhone 6s" from shopping cart
+* User navigate to my account zone
+* User click add new address link
+* User add new address and save the record
+* The new address is added successfully
 _________________________
 these are the teardown steps after each scenario
 * User logout amazon
+
+
+
+
+
+
 
 
 

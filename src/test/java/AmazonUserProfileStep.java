@@ -1,4 +1,5 @@
 import PageObjects.*;
+import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
 import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
@@ -16,24 +17,26 @@ public class AmazonUserProfileStep {
     @Step("User navigate to my account zone")
     public void navigateToMyAccount() {
         amazonHomePage.clickMyAccount();
-        DriverFactory.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
     }
 
     @Step("User click add new address link")
     public void clickAddNewAddress() {
+        DriverFactory.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         amazonUserProfilePage.clickAddNewAddress();
     }
 
     @Step("User add new address and save the record")
     public void addAddressRecord() {
+        DriverFactory.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         amazonAddressInputPage.inputAddressInfor();
         amazonAddressInputPage.clickSaveButton();
     }
 
     @Step("The new address is added successfully")
     public void verifyNewAddressAdded() {
+        Gauge.writeMessage("这是一个验证亚马逊用户能成功添加通讯地址的测试用例");
         amazonAddressManagementPage.addressAddAlterDisplay();
+
     }
 
     @Step("User delete the address")

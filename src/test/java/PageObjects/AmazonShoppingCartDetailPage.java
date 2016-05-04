@@ -17,10 +17,10 @@ public class AmazonShoppingCartDetailPage {
     @FindBy(css=".sc-list-body .sc-list-item-removed-msg div:nth-of-type(1)")
     private WebElement deleteConfirmationMessage;
 
-    @FindBy (id = "a-autoid-0-announce")
+    @FindBy (id = "a-autoid-1-announce")
     private WebElement amountField;
 
-    @FindBy (id = "dropdown1_2")
+    @FindBy (id = "dropdown1_1")
     private WebElement amountValue;
 
     public void deleteProduct(String productName) {

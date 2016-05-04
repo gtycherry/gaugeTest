@@ -1,6 +1,7 @@
 import PageObjects.AmazonHomePage;
 import PageObjects.AmazonShoppingCartDetailPage;
 import PageObjects.AmazonShoppingCartPage;
+import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
 import org.openqa.selenium.support.PageFactory;
 
@@ -33,6 +34,7 @@ public class AmazonShoppingStep {
             DriverFactory.driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
         }
         amazonShoppingCartPage.productAddedMessageDisplay();
+        Gauge.writeMessage("这是一个验证亚马逊用户能成功添加商品的测试用例");
     }
 
     @Step("click shopping cart button to view shopping cart")
@@ -53,8 +55,9 @@ public class AmazonShoppingStep {
 
     }
 
-    @Step("User edit the amount of product to 3")
+    @Step("User edit the amount of product to 2")
     public void editShoppingCart() {
+        DriverFactory.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         amazonShoppingCartPage.clickShoppingCart();
         amazonShoppingCartDetailPage.editAmountOfProduct();
 
